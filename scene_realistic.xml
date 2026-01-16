@@ -1,0 +1,197 @@
+<mujoco model="cafe_scene_realistic">
+  <compiler angle="degree" coordinate="local" meshdir="assets"/>
+  
+  <visual>
+    <headlight ambient="0.3 0.3 0.3" diffuse="0.6 0.6 0.6" specular="0.1 0.1 0.1"/>
+    <rgba haze="0.15 0.15 0.15 1"/>
+    <quality shadowsize="8192" offsamples="8"/> <global offwidth="1920" offheight="1080"/>
+    <map fogstart="3" fogend="20"/> </visual>
+
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
+  <size njmax="6000" nconmax="1500"/>
+
+  <default>
+    <geom friction="1.0 0.01 0.0005" solref="0.015 1" solimp="0.95 0.99 0.001" condim="4"/>
+    <default class="panda">
+      <material specular="0.5" shininess="0.25"/>
+      <joint armature="0.1" damping="1" axis="0 0 1" range="-2.8973 2.8973"/>
+      <general dyntype="none" biastype="affine" ctrlrange="-2.8973 2.8973" forcerange="-87 87"/>
+      <default class="finger">
+        <joint axis="0 1 0" type="slide" range="0 0.04"/>
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+      <default class="collision">
+        <geom type="mesh" group="3"/>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.1 0.15 0.2" rgb2="0.6 0.8 0.9" width="512" height="300"/>
+    
+    <texture name="tex_floor" type="2d" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.15 0.2" width="512" height="512" mark="cross" markrgb="0 0 0"/>
+    
+    <texture name="tex_art_abstract" type="2d" builtin="flat" rgb1="0.8 0.5 0.2" width="512" height="512"/> 
+    <texture name="tex_metal_brushed" type="2d" builtin="flat" rgb1="0.6 0.6 0.6" width="512" height="512"/>
+
+    <material name="mat_floor" texture="tex_floor" texrepeat="5 5" reflectance="0.2" specular="0.3"/>
+    <material name="mat_wall"  rgba="0.95 0.94 0.92 1" reflectance="0.0"/> <material name="mat_wood"  rgba="0.45 0.30 0.20 1" reflectance="0.1" specular="0.2" shininess="0.1"/>
+    
+    <material name="mat_metal" rgba="0.8 0.8 0.82 1" reflectance="0.7" specular="0.8" shininess="0.8"/>
+    <material name="mat_chrome" rgba="0.9 0.9 0.9 1" reflectance="0.9" specular="1.0" shininess="1.0" roughness="0.0"/>
+    <material name="mat_brass" rgba="0.72 0.62 0.35 1" reflectance="0.6" specular="0.5" shininess="0.5"/>
+
+    <material name="mat_glass_real" rgba="0.8 0.9 0.95 0.2" reflectance="0.5" specular="0.9" shininess="0.95"/>
+    <material name="mat_coffee_liquid" rgba="0.05 0.02 0.01 0.95" reflectance="0.1" specular="0.5" shininess="0.8"/>
+    
+    <material name="mat_art1" texture="tex_art_abstract" reflectance="0.05"/>
+    
+    <material name="mat_table" rgba="0.92 0.89 0.84 1" reflectance="0.07"/>
+    <material name="mat_tile_green" rgba="0.20 0.45 0.32 1" reflectance="0.2" specular="0.4"/>
+    <material name="mat_light" rgba="0.98 0.96 0.90 1" reflectance="0.1" emission="0.8"/> <mesh name="link0_c" file="link0.stl"/>
+    <mesh name="link1_c" file="link1.stl"/>
+    <mesh name="link2_c" file="link2.stl"/>
+    <mesh name="link3_c" file="link3.stl"/>
+    <mesh name="link4_c" file="link4.stl"/>
+    <mesh name="link5_c0" file="link5_collision_0.obj"/>
+    <mesh name="link5_c1" file="link5_collision_1.obj"/>
+    <mesh name="link5_c2" file="link5_collision_2.obj"/>
+    <mesh name="link6_c" file="link6.stl"/>
+    <mesh name="link7_c" file="link7.stl"/>
+    <mesh name="hand_c" file="hand.stl"/>
+    <mesh file="link0_0.obj"/>
+    <mesh file="link0_1.obj"/>
+    <mesh file="link0_2.obj"/>
+    <mesh file="link0_3.obj"/>
+    <mesh file="link0_4.obj"/>
+    <mesh file="link0_5.obj"/>
+    <mesh file="link0_7.obj"/>
+    <mesh file="link0_8.obj"/>
+    <mesh file="link0_9.obj"/>
+    <mesh file="link0_10.obj"/>
+    <mesh file="link0_11.obj"/>
+    <mesh file="link1.obj"/>
+    <mesh file="link2.obj"/>
+    <mesh file="link3_0.obj"/>
+    <mesh file="link3_1.obj"/>
+    <mesh file="link3_2.obj"/>
+    <mesh file="link3_3.obj"/>
+    <mesh file="link4_0.obj"/>
+    <mesh file="link4_1.obj"/>
+    <mesh file="link4_2.obj"/>
+    <mesh file="link4_3.obj"/>
+    <mesh file="link5_0.obj"/>
+    <mesh file="link5_1.obj"/>
+    <mesh file="link5_2.obj"/>
+    <mesh file="link6_0.obj"/>
+    <mesh file="link6_1.obj"/>
+    <mesh file="link6_2.obj"/>
+    <mesh file="link6_3.obj"/>
+    <mesh file="link6_4.obj"/>
+    <mesh file="link6_5.obj"/>
+    <mesh file="link6_6.obj"/>
+    <mesh file="link6_7.obj"/>
+    <mesh file="link6_8.obj"/>
+    <mesh file="link6_9.obj"/>
+    <mesh file="link6_10.obj"/>
+    <mesh file="link6_11.obj"/>
+    <mesh file="link6_12.obj"/>
+    <mesh file="link6_13.obj"/>
+    <mesh file="link6_14.obj"/>
+    <mesh file="link6_15.obj"/>
+    <mesh file="link6_16.obj"/>
+    <mesh file="link7_0.obj"/>
+    <mesh file="link7_1.obj"/>
+    <mesh file="link7_2.obj"/>
+    <mesh file="link7_3.obj"/>
+    <mesh file="link7_4.obj"/>
+    <mesh file="link7_5.obj"/>
+    <mesh file="link7_6.obj"/>
+    <mesh file="link7_7.obj"/>
+    <mesh file="hand_0.obj"/>
+    <mesh file="hand_1.obj"/>
+    <mesh file="hand_2.obj"/>
+    <mesh file="hand_3.obj"/>
+    <mesh file="hand_4.obj"/>
+    <mesh file="finger_0.obj"/>
+    <mesh file="finger_1.obj"/>
+  </asset>
+
+  <worldbody>
+    <light name="sun" pos="6 6 8" dir="-0.5 -0.5 -1" diffuse="0.8 0.75 0.7" specular="0.3 0.3 0.3" castshadow="true" attenuation="0.01 0.01 0.01"/>
+    <light name="fill_blue" pos="-2 8 5" dir="0.5 -1 -0.5" diffuse="0.2 0.2 0.4" castshadow="false" attenuation="0.05 0.05 0.05"/>
+    <light name="bar_spot" pos="2.2 6.6 2.5" dir="0 0 -1" diffuse="0.8 0.7 0.5" cutoff="45" castshadow="true" attenuation="0.5 0 0"/>
+
+    <camera name="closeup_machine" pos="2.0 5.8 1.4" xyaxes="1 0 0 0 0.5 0.866"/>
+
+    <geom name="floor" type="plane" size="12 8 0.1" material="mat_floor" contype="1" conaffinity="1"/>
+    <geom name="wall_left"  type="box" pos="0 4 1.5"  size="0.08 4 1.5" material="mat_wall"/>
+    <geom name="wall_right" type="box" pos="12 4 1.5" size="0.08 4 1.5" material="mat_wall"/>
+    <geom name="wall_back"  type="box" pos="6 8 1.5"  size="6 0.08 1.5" material="mat_wall"/>
+    
+    <body name="wall_art_back1" pos="4.2 7.90 1.55">
+      <geom name="wall_art_frame" type="box" size="0.62 0.02 0.47" material="mat_wood"/>
+      <geom name="wall_art_canvas" type="box" pos="0 -0.015 0" size="0.56 0.001 0.41" material="mat_art1"/>
+    </body>
+
+    <body name="bar" pos="2.2 6.6 0">
+      <geom name="bar_base" type="box" pos="0 0 0.55" size="1.8 0.55 0.55" material="mat_wood"/>
+      <geom name="bar_tile" type="box" pos="0 -0.52 0.55" size="1.78 0.02 0.50" material="mat_tile_green"/>
+      <geom name="bar_top"  type="box" pos="0 0 1.12" size="1.85 0.60 0.04" material="mat_table"/>
+      <geom name="bar_kick" type="box" pos="-0.2 -0.35 0.15" size="1.4 0.15 0.15" material="mat_metal"/>
+    </body>
+
+    <body name="machine" pos="2.0 6.85 1.20">
+      <geom name="m_body" type="box" pos="0 0 0.15" size="0.20 0.18 0.15" material="mat_chrome"/>
+      
+      <geom name="m_side_L" type="box" pos="-0.21 0 0.15" size="0.01 0.18 0.15" material="mat_metal"/>
+      <geom name="m_side_R" type="box" pos="0.21 0 0.15" size="0.01 0.18 0.15" material="mat_metal"/>
+
+      <geom name="rail_back" type="box" pos="0 0.16 0.31" size="0.20 0.005 0.01" material="mat_chrome"/>
+      <geom name="rail_left" type="box" pos="-0.19 0 0.31" size="0.005 0.16 0.01" material="mat_chrome"/>
+      <geom name="rail_right" type="box" pos="0.19 0 0.31" size="0.005 0.16 0.01" material="mat_chrome"/>
+
+      <body name="group_head" pos="0 -0.15 0.14">
+         <geom type="cylinder" size="0.04 0.04" zaxis="0 0 1" material="mat_chrome"/>
+         <geom type="cylinder" pos="0 0 -0.05" size="0.03 0.02" material="mat_brass"/>
+         <geom type="cylinder" pos="0 -0.10 -0.05" size="0.015 0.08" zaxis="0 1 0" material="mat_wood"/> 
+      </body>
+
+      <geom name="drip_tray_base" type="box" pos="0 -0.18 0.02" size="0.22 0.08 0.02" material="mat_metal"/>
+      <geom name="drip_grid_1" type="box" pos="0 -0.18 0.041" size="0.20 0.002 0.001" material="mat_chrome"/>
+      <geom name="drip_grid_2" type="box" pos="0 -0.16 0.041" size="0.20 0.002 0.001" material="mat_chrome"/>
+      <geom name="drip_grid_3" type="box" pos="0 -0.20 0.041" size="0.20 0.002 0.001" material="mat_chrome"/>
+
+      <body name="steam_wand" pos="0.16 -0.15 0.10" euler="0 15 20">
+        <geom type="capsule" size="0.008 0.08" material="mat_chrome"/>
+        <geom type="cylinder" pos="0 0 -0.09" size="0.004 0.01" material="mat_metal"/> </body>
+
+      <geom name="gauge" type="cylinder" pos="0 0.185 0.20" size="0.03 0.01" zaxis="0 1 0" material="mat_light"/> <geom name="knob_L" type="cylinder" pos="-0.15 0.185 0.05" size="0.02 0.015" zaxis="0 1 0" material="mat_wood"/>
+      <geom name="knob_R" type="cylinder" pos="0.15 0.185 0.05" size="0.02 0.015" zaxis="0 1 0" material="mat_wood"/>
+    </body>
+
+    <body name="espresso_glass" pos="2.28 6.55 1.18">
+      <freejoint/> <geom name="glass_body" type="cylinder" size="0.03 0.05" material="mat_glass_real" density="500"/>
+      <geom name="glass_liquid" type="cylinder" pos="0 0 -0.01" size="0.028 0.02" material="mat_coffee_liquid"/>
+    </body>
+    
+    <body name="cup_ceramic" pos="2.02 6.55 1.18">
+      <freejoint/>
+      <geom name="cup_body" type="cylinder" size="0.035 0.04" material="mat_wall"/> <geom name="cup_liquid" type="cylinder" pos="0 0 0.01" size="0.033 0.02" material="mat_espresso"/>
+    </body>
+
+    <body name="panda_mount" pos="3.40 6.20 1.16" quat="1 0 0 0">
+       <include file="panda.xml"/> 
+       </body>
+
+    <body name="tableA" pos="8.6 5.6 0">
+      <geom name="tableA_top" type="box" pos="0 0 0.76" size="0.55 0.45 0.04" material="mat_table"/>
+      <geom name="tableA_leg" type="cylinder" pos="0 0 0.38" size="0.05 0.38" material="mat_metal"/>
+    </body>
+    </worldbody>
+  
+  <actuator>
+      </actuator>
+</mujoco>
