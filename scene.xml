@@ -2,11 +2,11 @@
   <compiler angle="degree" coordinate="local" meshdir="assets"/>
 
   <visual>
-    <headlight ambient="0.3 0.3 0.3" diffuse="0.6 0.6 0.6" specular="0.1 0.1 0.1"/>
-    <rgba haze="0.15 0.15 0.15 1"/>
+    <headlight ambient="0.22 0.22 0.22" diffuse="0.45 0.45 0.45" specular="0.08 0.08 0.08"/>
+    <rgba haze="0.12 0.12 0.12 1"/>
     <quality shadowsize="8192" offsamples="8"/>
     <global offwidth="1920" offheight="1080"/>
-    <map fogstart="3" fogend="12"/>
+    <map fogstart="4" fogend="14"/>
   </visual>
 
   <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
@@ -49,12 +49,15 @@
   <asset>
     <texture type="skybox" builtin="gradient" rgb1="0.1 0.15 0.2" rgb2="0.6 0.8 0.9" width="512" height="300"/>
     <texture name="tex_floor" type="2d" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.15 0.2" width="512" height="512" mark="cross" markrgb="0 0 0"/>
-    <texture name="tex_art_abstract" type="2d" builtin="checker" rgb1="0.8 0.5 0.2" rgb2="0.1 0.1 0.1" width="512" height="512"/> 
+    <texture name="tex_art_abstract" type="2d" builtin="checker" rgb1="0.8 0.5 0.2" rgb2="0.1 0.1 0.1" width="512" height="512"/>
     <texture name="tex_wall_film" type="2d" file="film-VOHmh4pEOls-unsplash.png"/>
+    <texture name="tex_rubber_fleck" type="2d" builtin="checker" rgb1="0.13 0.13 0.14" rgb2="0.09 0.09 0.1" width="512" height="512" mark="cross" markrgb="0.05 0.05 0.05"/>
 
     <material name="mat_floor" texture="tex_floor" texrepeat="5 5" reflectance="0.2" specular="0.3"/>
-    <material name="mat_wall"  rgba="0.92 0.90 0.86 1" reflectance="0.0"/>
-    <material name="mat_wood"  rgba="0.46 0.30 0.18 1" reflectance="0.08" specular="0.18" shininess="0.12"/>
+    <material name="mat_wall" rgba="0.92 0.90 0.86 1" reflectance="0.0"/>
+    <material name="mat_wall_warm" rgba="0.95 0.90 0.82 1" reflectance="0.03" specular="0.08" shininess="0.05"/>
+    <material name="mat_gym_wall" rgba="0.85 0.86 0.88 1" reflectance="0.05" specular="0.08" shininess="0.05"/>
+    <material name="mat_wood" rgba="0.46 0.30 0.18 1" reflectance="0.08" specular="0.18" shininess="0.12"/>
     <material name="mat_metal" rgba="0.50 0.48 0.45 1" reflectance="0.3" specular="0.3" shininess="0.3"/>
     <material name="mat_brass_soft" rgba="0.68 0.54 0.26 1" reflectance="0.4" specular="0.6" shininess="0.5"/>
     <material name="mat_black_matte" rgba="0.08 0.08 0.08 1" reflectance="0.05" specular="0.05" shininess="0.1"/>
@@ -72,10 +75,19 @@
     <material name="mat_table" rgba="0.92 0.89 0.84 1" reflectance="0.07"/>
     <material name="mat_tile_green" rgba="0.20 0.45 0.32 1" reflectance="0.2" specular="0.4"/>
     <material name="mat_light" rgba="0.98 0.96 0.90 1" reflectance="0.1" emission="0.5"/>
-    <material name="mat_gym_floor" rgba="0.18 0.18 0.2 1" reflectance="0.05" specular="0.05" shininess="0.05"/>
-    <material name="mat_gym_rack" rgba="0.2 0.2 0.22 1" reflectance="0.2" specular="0.3" shininess="0.3"/>
-    <material name="mat_gym_pad" rgba="0.08 0.08 0.08 1" reflectance="0.05" specular="0.1" shininess="0.1"/>
-    <material name="mat_gym_mirror" rgba="0.8 0.85 0.9 0.2" reflectance="0.5" specular="0.8" shininess="0.8"/>
+    <material name="mat_bar_amber" rgba="1 0.75 0.45 1" emission="1.2" reflectance="0.05"/>
+    <material name="mat_pendant" rgba="0.12 0.10 0.08 1" reflectance="0.05" specular="0.08" shininess="0.1"/>
+    <material name="mat_cushion" rgba="0.22 0.13 0.08 1" reflectance="0.04" specular="0.05" shininess="0.05"/>
+    <material name="mat_plant" rgba="0.15 0.32 0.18 1" reflectance="0.06" specular="0.08" shininess="0.1"/>
+    <material name="mat_pot" rgba="0.36 0.23 0.18 1" reflectance="0.07" specular="0.1" shininess="0.1"/>
+    <material name="mat_gym_floor" texture="tex_rubber_fleck" texrepeat="10 10" rgba="0.17 0.17 0.18 1" reflectance="0.02" specular="0.05" shininess="0.03"/>
+    <material name="mat_gym_rack" rgba="0.18 0.18 0.2 1" reflectance="0.2" specular="0.25" shininess="0.25"/>
+    <material name="mat_gym_frame" rgba="0.12 0.12 0.13 1" reflectance="0.15" specular="0.2" shininess="0.25"/>
+    <material name="mat_gym_plate" rgba="0.10 0.10 0.11 1" reflectance="0.1" specular="0.12" shininess="0.2"/>
+    <material name="mat_gym_pad" rgba="0.06 0.06 0.06 1" reflectance="0.03" specular="0.05" shininess="0.05"/>
+    <material name="mat_gym_foam" rgba="0.13 0.13 0.14 1" reflectance="0.05" specular="0.05" shininess="0.05"/>
+    <material name="mat_gym_mirror" rgba="0.85 0.9 0.95 0.12" reflectance="0.65" specular="0.95" shininess="0.95"/>
+    <material name="mat_gym_sign" rgba="0.92 0.92 0.92 1" reflectance="0.05" specular="0.1" shininess="0.1"/>
 
     <material class="panda" name="white" rgba="1 1 1 1"/>
     <material class="panda" name="off_white" rgba="0.901961 0.921569 0.929412 1"/>
@@ -155,27 +167,31 @@
   </asset>
 
   <worldbody>
-    <light name="sun" pos="6 6 8" dir="-0.5 -0.5 -1" diffuse="0.65 0.58 0.5" specular="0.25 0.25 0.25" castshadow="true"/>
-    <light name="fill" pos="-2 8 5" dir="0.5 -1 -0.5" diffuse="0.18 0.16 0.2" castshadow="false"/>
-    <light name="bar_spot" pos="2.2 6.6 2.3" dir="0 -0.1 -1" diffuse="0.45 0.36 0.28" cutoff="55" castshadow="true" attenuation="1.0 0.2 0.03"/>
-    <light name="warm_overhead" pos="6 4 3.2" dir="0 0 -1" diffuse="0.45 0.35 0.25" cutoff="60" castshadow="true" attenuation="0.8 0.12 0.02"/>
-    <light name="gym_light" pos="16 4 3.2" dir="0 0 -1" diffuse="0.35 0.35 0.38" cutoff="60" castshadow="true" attenuation="0.9 0.15 0.03"/>
+    <light name="sun" pos="6 6 8" dir="-0.5 -0.5 -1" diffuse="0.52 0.46 0.4" specular="0.18 0.18 0.18" castshadow="true"/>
+    <light name="fill" pos="-2 8 5" dir="0.5 -1 -0.5" diffuse="0.10 0.10 0.14" castshadow="false"/>
+    <light name="bar_spot" pos="2.2 6.6 2.3" dir="0 -0.1 -1" diffuse="0.65 0.46 0.32" cutoff="45" castshadow="true" attenuation="0.85 0.26 0.045"/>
+    <light name="bar_bounce" pos="3.2 6.2 1.2" dir="-0.3 0.2 -1" diffuse="0.22 0.16 0.12" castshadow="false" attenuation="0.6 0.4 0.1"/>
+    <light name="warm_overhead" pos="6 4 3.2" dir="0 0 -1" diffuse="0.34 0.24 0.18" cutoff="70" castshadow="true" attenuation="1.0 0.2 0.04"/>
+    <light name="bar_pendant" pos="2.2 6.0 2.1" dir="0 0 -1" diffuse="0.78 0.55 0.38" cutoff="35" castshadow="true" attenuation="0.55 0.22 0.055"/>
+    <light name="gym_light" pos="16 4 3.2" dir="0 0 -1" diffuse="0.48 0.5 0.56" cutoff="55" castshadow="true" attenuation="0.72 0.15 0.045"/>
+    <light name="gym_spot" pos="15.6 6.2 3.0" dir="0 0 -1" diffuse="0.4 0.42 0.48" cutoff="50" castshadow="true" attenuation="0.78 0.2 0.045"/>
+    <light name="gym_fill" pos="13.2 4.6 2.2" dir="0.2 0.1 -1" diffuse="0.18 0.2 0.25" castshadow="false" attenuation="0.7 0.3 0.08"/>
 
     <camera name="overview" pos="8 7 3.2" xyaxes="-0.7 0.7 0 -0.25 -0.25 0.93"/>
     <camera name="bar_cam"  pos="3.3 7.6 1.6" xyaxes="1 0 0 0 0.35 0.94"/>
     <camera name="closeup_machine" pos="2.0 5.8 1.4" xyaxes="1 0 0 0 0.5 0.866"/>
 
     <geom name="floor" type="plane" size="20 8 0.1" material="mat_floor" contype="1" conaffinity="1" rgba="0.70 0.63 0.55 1"/>
-    <geom name="wall_left"  type="box" pos="0 4 1.5"  size="0.08 4 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="wall_right" type="box" pos="20 4 1.5" size="0.08 4 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="wall_back"  type="box" pos="6 8 1.5"  size="6 0.08 1.5" material="mat_wall" contype="1" conaffinity="1"/>
+    <geom name="wall_left" type="box" pos="0 4 1.5" size="0.08 4 1.5" material="mat_wall_warm" contype="1" conaffinity="1"/>
+    <geom name="wall_right" type="box" pos="20 4 1.5" size="0.08 4 1.5" material="mat_wall_warm" contype="1" conaffinity="1"/>
+    <geom name="wall_back" type="box" pos="6 8 1.5" size="6 0.08 1.5" material="mat_wall_warm" contype="1" conaffinity="1"/>
     <geom name="wall_panel" type="box" pos="6 7.93 0.9" size="5.2 0.02 0.9" material="mat_panel"/>
-    <geom name="wall_front_L" type="box" pos="3 0 1.5" size="3 0.08 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="wall_front_R" type="box" pos="10.5 0 1.5" size="1.5 0.08 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="gym_wall_back" type="box" pos="16 8 1.5" size="4 0.08 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="gym_wall_front" type="box" pos="16 0 1.5" size="4 0.08 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="gym_wall_divider_lower" type="box" pos="12 0.3 1.5" size="0.08 0.3 1.5" material="mat_wall" contype="1" conaffinity="1"/>
-    <geom name="gym_wall_divider_upper" type="box" pos="12 4.9 1.5" size="0.08 3.1 1.5" material="mat_wall" contype="1" conaffinity="1"/>
+    <geom name="wall_front_L" type="box" pos="3 0 1.5" size="3 0.08 1.5" material="mat_wall_warm" contype="1" conaffinity="1"/>
+    <geom name="wall_front_R" type="box" pos="10.5 0 1.5" size="1.5 0.08 1.5" material="mat_wall_warm" contype="1" conaffinity="1"/>
+    <geom name="gym_wall_back" type="box" pos="16 8 1.5" size="4 0.08 1.5" material="mat_gym_wall" contype="1" conaffinity="1"/>
+    <geom name="gym_wall_front" type="box" pos="16 0 1.5" size="4 0.08 1.5" material="mat_gym_wall" contype="1" conaffinity="1"/>
+    <geom name="gym_wall_divider_lower" type="box" pos="12 0.3 1.5" size="0.08 0.3 1.5" material="mat_gym_wall" contype="1" conaffinity="1"/>
+    <geom name="gym_wall_divider_upper" type="box" pos="12 4.9 1.5" size="0.08 3.1 1.5" material="mat_gym_wall" contype="1" conaffinity="1"/>
     <body name="gym_doorway" pos="12 1.2 0">
       <geom name="gym_door_frame_left" type="box" pos="0 -0.6 1.1" size="0.05 0.05 1.1" material="mat_wood"/>
       <geom name="gym_door_frame_right" type="box" pos="0 0.6 1.1" size="0.05 0.05 1.1" material="mat_wood"/>
@@ -201,14 +217,34 @@
       <geom name="menu_led" type="box" pos="0 -0.015 -0.34" size="0.9 0.004 0.02" material="mat_led"/>
     </body>
 
+    <body name="cafe_pendant_left" pos="1.6 6.0 2.35">
+      <geom name="cafe_pendant_shade" type="cylinder" size="0.12 0.12" material="mat_pendant"/>
+      <geom name="cafe_pendant_core" type="cylinder" pos="0 0 -0.14" size="0.04 0.03" material="mat_bar_amber"/>
+    </body>
+    <body name="cafe_pendant_right" pos="2.8 6.0 2.35">
+      <geom name="cafe_pendant_shade_R" type="cylinder" size="0.12 0.12" material="mat_pendant"/>
+      <geom name="cafe_pendant_core_R" type="cylinder" pos="0 0 -0.14" size="0.04 0.03" material="mat_bar_amber"/>
+    </body>
+
     <body name="bar" pos="2.2 6.6 0">
       <geom name="bar_base" type="box" pos="0 0 0.55" size="1.8 0.55 0.55" material="mat_wood"/>
       <geom name="bar_tile" type="box" pos="0 -0.52 0.55" size="1.78 0.02 0.50" material="mat_tile_green"/>
-      <geom name="bar_top"  type="box" pos="0 0 1.12" size="1.85 0.60 0.04" material="mat_table"/>
+      <geom name="bar_top" type="box" pos="0 0 1.12" size="1.85 0.60 0.04" material="mat_table"/>
       <geom name="bar_kick" type="box" pos="-0.2 -0.35 0.15" size="1.4 0.15 0.15" material="mat_metal"/>
       <geom name="bar_brass" type="box" pos="0 -0.55 0.45" size="1.6 0.02 0.05" material="mat_brass_soft"/>
       <geom name="bar_shelf" type="box" pos="0 0.42 1.45" size="1.6 0.12 0.03" material="mat_wood"/>
       <geom name="bar_shelf_back" type="box" pos="0 0.47 1.18" size="1.6 0.02 0.25" material="mat_wood"/>
+      <body name="bar_cups" pos="-0.6 -0.1 1.15">
+        <geom type="cylinder" size="0.03 0.06" material="mat_glass_dark"/>
+        <geom type="cylinder" pos="0.12 0 0" size="0.03 0.06" material="mat_glass_dark"/>
+        <geom type="cylinder" pos="0.24 0 0" size="0.03 0.06" material="mat_glass_dark"/>
+      </body>
+      <body name="bar_mugs" pos="0.45 -0.12 1.15">
+        <geom type="cylinder" size="0.035 0.05" material="mat_wall"/>
+        <geom type="box" pos="0.04 0 0.01" size="0.01 0.015 0.01" material="mat_wall"/>
+        <geom type="cylinder" pos="0.12 0 0" size="0.035 0.05" material="mat_wall"/>
+        <geom type="box" pos="0.16 0 0.01" size="0.01 0.015 0.01" material="mat_wall"/>
+      </body>
     </body>
 
     <body name="machine" pos="2.0 6.75 1.10">
@@ -371,10 +407,14 @@
     <body name="tableA" pos="8.6 5.6 0">
       <geom name="tableA_top" type="box" pos="0 0 0.76" size="0.55 0.45 0.04" material="mat_table"/>
       <geom name="tableA_leg" type="cylinder" pos="0 0 0.38" size="0.05 0.38" material="mat_metal"/>
+      <geom name="tableA_plate" type="cylinder" pos="0.12 -0.08 0.80" size="0.08 0.01" material="mat_panel"/>
+      <geom name="tableA_cup" type="cylinder" pos="-0.10 0.05 0.80" size="0.025 0.03" material="mat_wall"/>
+      <geom name="tableA_cup_handle" type="box" pos="-0.07 0.05 0.81" size="0.008 0.012 0.008" material="mat_wall"/>
     </body>
     <body name="chairA1" pos="8.6 4.8 0">
       <geom type="box" pos="0 0 0.25" size="0.22 0.22 0.03" material="mat_wood"/>
       <geom type="box" pos="0 -0.18 0.55" size="0.22 0.03 0.30" material="mat_wood"/>
+      <geom type="box" pos="0 0 0.28" size="0.22 0.22 0.02" material="mat_cushion"/>
       <geom type="cylinder" pos="0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="-0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="0.17 -0.17 0.13" size="0.02 0.13" material="mat_metal"/>
@@ -383,6 +423,7 @@
     <body name="chairA2" pos="8.6 6.35 0">
       <geom type="box" pos="0 0 0.25" size="0.22 0.22 0.03" material="mat_wood"/>
       <geom type="box" pos="0 0.18 0.55" size="0.22 0.03 0.30" material="mat_wood"/>
+      <geom type="box" pos="0 0 0.28" size="0.22 0.22 0.02" material="mat_cushion"/>
       <geom type="cylinder" pos="0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="-0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="0.17 -0.17 0.13" size="0.02 0.13" material="mat_metal"/>
@@ -395,6 +436,7 @@
     <body name="chairB1" pos="10.6 4.3 0">
       <geom type="box" pos="0 0 0.25" size="0.22 0.22 0.03" material="mat_wood"/>
       <geom type="box" pos="0 -0.18 0.55" size="0.22 0.03 0.30" material="mat_wood"/>
+      <geom type="box" pos="0 0 0.28" size="0.22 0.22 0.02" material="mat_cushion"/>
       <geom type="cylinder" pos="0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="-0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="0.17 -0.17 0.13" size="0.02 0.13" material="mat_metal"/>
@@ -403,10 +445,18 @@
     <body name="chairB2" pos="10.6 5.9 0">
       <geom type="box" pos="0 0 0.25" size="0.22 0.22 0.03" material="mat_wood"/>
       <geom type="box" pos="0 0.18 0.55" size="0.22 0.03 0.30" material="mat_wood"/>
+      <geom type="box" pos="0 0 0.28" size="0.22 0.22 0.02" material="mat_cushion"/>
       <geom type="cylinder" pos="0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="-0.17 0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="0.17 -0.17 0.13" size="0.02 0.13" material="mat_metal"/>
       <geom type="cylinder" pos="-0.17 -0.17 0.13" size="0.02 0.13" material="mat_metal"/>
+    </body>
+
+    <body name="cafe_plant" pos="7.1 7.4 0">
+      <geom type="cylinder" pos="0 0 0.2" size="0.16 0.2" material="mat_pot"/>
+      <geom type="sphere" pos="0 0 0.55" size="0.25" material="mat_plant"/>
+      <geom type="sphere" pos="0.18 0.1 0.65" size="0.18" material="mat_plant"/>
+      <geom type="sphere" pos="-0.16 0.1 0.6" size="0.2" material="mat_plant"/>
     </body>
 
     <body name="milk_tea_shop" pos="10.2 2.2 0">
@@ -434,55 +484,59 @@
     <body name="gym" pos="14 1.2 0">
       <geom name="gym_floor" type="box" pos="2 2.8 0.02" size="3.8 2.6 0.02" material="mat_gym_floor"/>
       <geom name="gym_mirror" type="box" pos="2 6.78 1.2" size="3.6 0.01 1.1" material="mat_gym_mirror"/>
-      <geom name="gym_rack_left" type="box" pos="0.6 3.0 1.1" size="0.06 0.8 1.1" material="mat_gym_rack"/>
-      <geom name="gym_rack_right" type="box" pos="3.4 3.0 1.1" size="0.06 0.8 1.1" material="mat_gym_rack"/>
-      <geom name="gym_rack_top" type="box" pos="2.0 3.0 2.1" size="1.4 0.06 0.06" material="mat_gym_rack"/>
-      <geom name="gym_rack_base" type="box" pos="2.0 3.0 0.06" size="1.4 0.06 0.06" material="mat_gym_rack"/>
+      <geom name="gym_rack_left" type="box" pos="0.6 3.0 1.1" size="0.06 0.8 1.1" material="mat_gym_frame"/>
+      <geom name="gym_rack_right" type="box" pos="3.4 3.0 1.1" size="0.06 0.8 1.1" material="mat_gym_frame"/>
+      <geom name="gym_rack_top" type="box" pos="2.0 3.0 2.1" size="1.4 0.06 0.06" material="mat_gym_frame"/>
+      <geom name="gym_rack_base" type="box" pos="2.0 3.0 0.06" size="1.4 0.06 0.06" material="mat_gym_frame"/>
       <geom name="gym_barbell" type="cylinder" pos="2.0 3.0 1.2" size="0.03 1.4" zaxis="0 1 0" material="mat_metal"/>
-      <geom name="gym_plate_L" type="cylinder" pos="0.5 3.0 1.2" size="0.18 0.05" zaxis="0 1 0" material="mat_gym_rack"/>
-      <geom name="gym_plate_R" type="cylinder" pos="3.5 3.0 1.2" size="0.18 0.05" zaxis="0 1 0" material="mat_gym_rack"/>
+      <geom name="gym_plate_L" type="cylinder" pos="0.5 3.0 1.2" size="0.18 0.05" zaxis="0 1 0" material="mat_gym_plate"/>
+      <geom name="gym_plate_R" type="cylinder" pos="3.5 3.0 1.2" size="0.18 0.05" zaxis="0 1 0" material="mat_gym_plate"/>
+      <geom name="gym_plate_L_inner" type="cylinder" pos="0.74 3.0 1.2" size="0.12 0.04" zaxis="0 1 0" material="mat_gym_plate"/>
+      <geom name="gym_plate_R_inner" type="cylinder" pos="3.26 3.0 1.2" size="0.12 0.04" zaxis="0 1 0" material="mat_gym_plate"/>
       <geom name="gym_bench" type="box" pos="2.0 2.2 0.35" size="0.6 0.3 0.08" material="mat_gym_pad"/>
-      <geom name="gym_bench_leg1" type="cylinder" pos="1.6 2.0 0.18" size="0.03 0.18" material="mat_gym_rack"/>
-      <geom name="gym_bench_leg2" type="cylinder" pos="2.4 2.0 0.18" size="0.03 0.18" material="mat_gym_rack"/>
-      <geom name="gym_bench_leg3" type="cylinder" pos="1.6 2.4 0.18" size="0.03 0.18" material="mat_gym_rack"/>
-      <geom name="gym_bench_leg4" type="cylinder" pos="2.4 2.4 0.18" size="0.03 0.18" material="mat_gym_rack"/>
-      <geom name="gym_dumbbell1" type="cylinder" pos="3.0 1.9 0.25" size="0.05 0.22" zaxis="1 0 0" material="mat_gym_rack"/>
-      <geom name="gym_dumbbell2" type="cylinder" pos="3.0 2.2 0.25" size="0.05 0.22" zaxis="1 0 0" material="mat_gym_rack"/>
+      <geom name="gym_bench_top" type="box" pos="2.0 2.2 0.40" size="0.58 0.28 0.02" material="mat_gym_foam"/>
+      <geom name="gym_bench_leg1" type="cylinder" pos="1.6 2.0 0.18" size="0.03 0.18" material="mat_gym_frame"/>
+      <geom name="gym_bench_leg2" type="cylinder" pos="2.4 2.0 0.18" size="0.03 0.18" material="mat_gym_frame"/>
+      <geom name="gym_bench_leg3" type="cylinder" pos="1.6 2.4 0.18" size="0.03 0.18" material="mat_gym_frame"/>
+      <geom name="gym_bench_leg4" type="cylinder" pos="2.4 2.4 0.18" size="0.03 0.18" material="mat_gym_frame"/>
+      <geom name="gym_dumbbell1" type="cylinder" pos="3.0 1.9 0.25" size="0.05 0.22" zaxis="1 0 0" material="mat_gym_plate"/>
+      <geom name="gym_dumbbell2" type="cylinder" pos="3.0 2.2 0.25" size="0.05 0.22" zaxis="1 0 0" material="mat_gym_plate"/>
       <geom name="gym_mat" type="box" pos="3.0 4.5 0.03" size="0.8 1.2 0.02" material="mat_gym_pad"/>
+      <geom name="gym_sign" type="box" pos="2.0 7.72 1.9" size="1.2 0.02 0.25" material="mat_gym_sign"/>
 
       <body name="gym_treadmills" pos="0.6 5.2 0">
-        <geom type="box" pos="0 0 0.18" size="0.6 1.0 0.1" material="mat_gym_rack"/>
-        <geom type="box" pos="0 0.65 0.6" size="0.5 0.08 0.45" material="mat_gym_rack"/>
+        <geom type="box" pos="0 0 0.18" size="0.6 1.0 0.1" material="mat_gym_frame"/>
+        <geom type="box" pos="0 0.65 0.6" size="0.5 0.08 0.45" material="mat_gym_frame"/>
         <geom type="box" pos="0 0.85 0.85" size="0.4 0.05 0.2" material="mat_panel"/>
         <geom type="cylinder" pos="-0.25 -0.4 0.1" size="0.05 0.4" zaxis="1 0 0" material="mat_metal"/>
         <geom type="cylinder" pos="0.25 -0.4 0.1" size="0.05 0.4" zaxis="1 0 0" material="mat_metal"/>
-        <geom type="box" pos="1.3 0 0.18" size="0.6 1.0 0.1" material="mat_gym_rack"/>
-        <geom type="box" pos="1.3 0.65 0.6" size="0.5 0.08 0.45" material="mat_gym_rack"/>
+        <geom type="box" pos="1.3 0 0.18" size="0.6 1.0 0.1" material="mat_gym_frame"/>
+        <geom type="box" pos="1.3 0.65 0.6" size="0.5 0.08 0.45" material="mat_gym_frame"/>
         <geom type="box" pos="1.3 0.85 0.85" size="0.4 0.05 0.2" material="mat_panel"/>
         <geom type="cylinder" pos="1.05 -0.4 0.1" size="0.05 0.4" zaxis="1 0 0" material="mat_metal"/>
         <geom type="cylinder" pos="1.55 -0.4 0.1" size="0.05 0.4" zaxis="1 0 0" material="mat_metal"/>
       </body>
 
       <body name="gym_bike" pos="3.6 5.5 0">
-        <geom type="box" pos="0 0 0.25" size="0.2 0.6 0.08" material="mat_gym_rack"/>
-        <geom type="cylinder" pos="0 0.4 0.4" size="0.05 0.35" material="mat_gym_rack"/>
+        <geom type="box" pos="0 0 0.25" size="0.2 0.6 0.08" material="mat_gym_frame"/>
+        <geom type="cylinder" pos="0 0.4 0.4" size="0.05 0.35" material="mat_gym_frame"/>
         <geom type="box" pos="0 0.15 0.65" size="0.25 0.08 0.05" material="mat_panel"/>
         <geom type="box" pos="0 0.0 0.55" size="0.15 0.2 0.05" material="mat_gym_pad"/>
         <geom type="cylinder" pos="-0.2 -0.35 0.12" size="0.12 0.05" zaxis="0 1 0" material="mat_metal"/>
       </body>
 
       <body name="gym_storage" pos="0.7 1.4 0">
-        <geom type="box" pos="0 0 0.6" size="0.4 0.25 0.6" material="mat_gym_rack"/>
-        <geom type="box" pos="0 -0.3 0.6" size="0.4 0.02 0.6" material="mat_gym_rack"/>
-        <geom type="cylinder" pos="-0.15 -0.35 0.2" size="0.07 0.04" zaxis="0 1 0" material="mat_gym_rack"/>
-        <geom type="cylinder" pos="0.15 -0.35 0.2" size="0.07 0.04" zaxis="0 1 0" material="mat_gym_rack"/>
-        <geom type="cylinder" pos="-0.15 -0.35 0.45" size="0.09 0.04" zaxis="0 1 0" material="mat_gym_rack"/>
-        <geom type="cylinder" pos="0.15 -0.35 0.45" size="0.09 0.04" zaxis="0 1 0" material="mat_gym_rack"/>
+        <geom type="box" pos="0 0 0.6" size="0.4 0.25 0.6" material="mat_gym_frame"/>
+        <geom type="box" pos="0 -0.3 0.6" size="0.4 0.02 0.6" material="mat_gym_frame"/>
+        <geom type="cylinder" pos="-0.15 -0.35 0.2" size="0.07 0.04" zaxis="0 1 0" material="mat_gym_plate"/>
+        <geom type="cylinder" pos="0.15 -0.35 0.2" size="0.07 0.04" zaxis="0 1 0" material="mat_gym_plate"/>
+        <geom type="cylinder" pos="-0.15 -0.35 0.45" size="0.09 0.04" zaxis="0 1 0" material="mat_gym_plate"/>
+        <geom type="cylinder" pos="0.15 -0.35 0.45" size="0.09 0.04" zaxis="0 1 0" material="mat_gym_plate"/>
       </body>
 
       <body name="gym_cable" pos="3.4 1.3 0">
-        <geom type="box" pos="0 0 0.8" size="0.35 0.35 0.8" material="mat_gym_rack"/>
-        <geom type="box" pos="0 0.0 1.65" size="0.32 0.32 0.05" material="mat_gym_rack"/>
+        <geom type="box" pos="0 0 0.8" size="0.35 0.35 0.8" material="mat_gym_frame"/>
+        <geom type="box" pos="0 0.0 1.65" size="0.32 0.32 0.05" material="mat_gym_frame"/>
         <geom type="box" pos="0 0.0 1.2" size="0.28 0.28 0.02" material="mat_panel"/>
         <geom type="capsule" pos="-0.15 -0.05 0.35" size="0.03 0.45" material="mat_metal"/>
         <geom type="capsule" pos="0.15 -0.05 0.35" size="0.03 0.45" material="mat_metal"/>
